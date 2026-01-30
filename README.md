@@ -60,13 +60,13 @@ With the domain environment already established, this project simulates common a
 <p>Under the default configuration, users can enter an incorrect password an unlimited number of times. In this step, a lockout policy will be configured to restrict failed login attempts. Access the Group Policy Management settings on the domain controller by searching, "Group Policy Managment".  Expand forest > domain > mydomain.com, and right-click Default Domain Policy and select "Edit". </p>
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 1a.PNG" width="40%" >
+<img src="images/Step 1a.PNG" width="60%" >
 </details> 
 
 <p>Expand Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies, and here we'll define an Account Lockout Threshold policy to enforce automatic lockouts after 5 failed login attempts.</p>
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 1b.PNG" width="40%" >
+<img src="images/Step 1b.PNG" width="60%" >
 </details> 
 
 > [!NOTE] 
@@ -84,13 +84,13 @@ With the domain environment already established, this project simulates common a
 <p>Mark the checkbox to unlock the affected account, and Apply. Select "OK" to close Properties window. Next, right-click the affected user and choose “Reset Password…”. This window allows both a password reset and account unlock simultaneously; for this demonstration, no changes will be made here.
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 3a.PNG" width="40%" >
+<img src="images/Step 3a.PNG" width="60%" >
 </details> 
 
 Verify the unlock by attempting to login using test user's credentials.</p>
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 3b.PNG" width="40%" >
+<img src="images/Step 3b.PNG" width="60%" >
 </details> 
 
 > [!NOTE] 
@@ -107,7 +107,7 @@ Verify the unlock by attempting to login using test user's credentials.</p>
 <p>Review authentication and security logs on the domain controller and client machine using Event Viewer to identify lockout events, failed login attempts, and account status changes. Open Event Viewer on "vm-dc-1". Expand "Windows Log", select "Security" to view the logs. Right-click "Security" and search for consecutive Audit Failures.</p>
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 5a.PNG" width="40%" >
+<img src="images/Step 5a.PNG" width="60%" >
 </details> 
 
 Failed logins, fall under "Credential Validation" in the Task Category with "Audit Failure" as the Keyword. Successful logins will have "Audit Success" as the Keyword.
@@ -115,7 +115,7 @@ Failed logins, fall under "Credential Validation" in the Task Category with "Aud
 Open Event Viewer on our Client. As a test user, you will be denied access. Run Event Viewer as Admin, and use Jane Doe's credentials. Look for the consecutive Audit Failures.
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 5b.PNG" width="40%" >
+<img src="images/Step 5b.PNG" width="60%" >
 </details> 
 
 <h3>Bonus - Observing External Authentication Attempts (Bots)</h3>
@@ -123,14 +123,14 @@ Open Event Viewer on our Client. As a test user, you will be denied access. Run 
 As an optional step, review the Event Viewer logs further to see a large number of consecutive Audit Failure logs. This occurs because the VM has Remote Desktop (RDP) exposed to the public internet through open ports, and with firewall restrictions disabled, automated bots continuously scan and attempt logins against any reachable system. Observing these logs highlights the importance of account lockout policies and strong authentication practices.
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 5c.PNG" width="40%" >
+<img src="images/Step 5c.PNG" width="60%" >
 </details>
 
 > [!NOTE]
 > From the Domain Controller VM, the username “Sales” appears because the Domain Controller is responsible for credential validation and logs the actual username submitted during each authentication attempt.
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 5d.PNG" width="40%" >
+<img src="images/Step 5d.PNG" width="60%" >
 </details> 
 
 > [!NOTE]
