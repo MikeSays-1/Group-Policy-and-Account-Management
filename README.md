@@ -51,7 +51,7 @@ With the domain environment already established, this project simulates common a
 
 
 > [!NOTE] 
-> This project builds upon a prior lab where the Azure environment, virtual machines, Active Directory Domain Services, and DNS configuration were initially deployed. [Part 2. Active Directory User & Client Management](https://github.com/MikeSays-1/Active-Directory-User-Client-Management)
+> This project builds upon a prior lab where the Azure environment, virtual machines, Active Directory Domain Services, and DNS configuration were initially deployed. <br /> **[Part 2. Active Directory User & Client Management](https://github.com/MikeSays-1/Active-Directory-User-Client-Management)**
 
 
 <h2>Deployment and Configuration</h2> 
